@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="styleSheet.css" />
+</head>
+
+
+<body>
+<div id="container">
+<h2>Demo Table Of Candidates </h2> 
+
+<input type="text" id="search" onkeyup="myFunction()" placeholder="Search for skills" title="Type in a skill"> <!-- Search input --> 
+
+<table class="candidates" id="candidatesTable">
+   <thead>
+        <tr>
+          <th style="width:60%;">Name</th>
+          <th style="width:60%;">Skills</th>
+        </tr>
+      </thead>
+ 
+     <tr>
+        <td>Cirpo</td>
+        <td>JavaScript, Docker</td>
+      </tr>
+      <tr>
+        <td>Louis</td>
+        <td>Java, AEM</td>
+      </tr>
+      <tr>
+        <td>Nermin</td>
+        <td>.NET, Azure</td>
+      </tr>
+    </table>
+    </div>
+ 
+
+    <script type="text/javascript">
+
+
+// Search input function
+function myFunction() { 
+    var input, filter, table, tr, td, i, SearchTxt;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("candidatesTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        SearchTxt = td.textContent || td.innerText;
+        if (SearchTxt.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+
+  </script>
+
+
+</body>
+</html>
